@@ -18,8 +18,14 @@ docker build -t retropie-docker .
 
 ## Running 
 
-`docker run -it retropie-docker`
+`docker run -v /dev/snd:/dev/snd -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --privileged -t retropie-docker`
 
 ## Issues
 
-Docker run currently fails with the error `* failed to open vchiq instance`. At a minimum, this probably requires some ENV variables to be passed to the running container. 
+Docker run currently fails with the following error :
+```
+lvl0:    Error creating SDL window!
+    Could not initialize OpenGL / GLES library
+lvl0:   Renderer failed to initialize!
+lvl0:   Window failed to initialize!
+```
