@@ -21,7 +21,7 @@ docker build -t retropie-docker .
 Run the container in privileged daemon mode. Try adding some additional volumes/variables based on some of the ideas from [here] (https://blog.jessfraz.com/post/docker-containers-on-the-desktop/) :
 
 ```
-docker run -d -v /dev/snd:/dev/snd -v /tmp/.X11\ 
+docker run -d -v /dev/snd:/dev/snd -v /tmp/.X11 \  
     -unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
     --privileged -t retropie-docker
 ```
